@@ -1,0 +1,52 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model BlogPost {
+  id            String   @id @default(cuid())
+  title         String
+  summary       String?  @db.Text
+  author        String?
+  image         String?
+  authorAvatar  String?  // <-- Make optional
+  tags          String?
+  content       String?  @db.LongText
+  date          String?
+  video         String?  // <-- Add this line if missing
+}
+
+model Property {
+  id          String   @id @default(cuid())
+  title       String
+  location    String
+  status      String
+  description String?
+  features    String?
+  image       String?
+  type        String
+  link        String?   // <-- Add this line
+}
+
+model Opportunity {
+  id          String   @id @default(cuid())
+  title       String
+  description String?
+  features    String?
+  link        String?
+  content     String?   // <-- Add this line
+}
+
+model Blog {
+  id        String   @id @default(cuid())
+  title     String
+  content   String?
+  // Add other fields as needed
+}

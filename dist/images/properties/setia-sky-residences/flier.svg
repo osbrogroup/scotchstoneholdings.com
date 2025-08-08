@@ -1,0 +1,31 @@
+<!-- Redesigned SVG flier for Setia Sky Residences (2025) - Modern, Clean, Premium, Full White Area -->
+<svg width="800" height="600" viewBox="0 0 800 600" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bgGrad" x1="0" y1="0" x2="800" y2="600" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#181818"/>
+      <stop offset="1" stop-color="#ff6a00"/>
+    </linearGradient>
+    <linearGradient id="orangeGrad" x1="0" y1="0" x2="800" y2="0" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#ff6a00"/>
+      <stop offset="1" stop-color="#ffb86b"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="600" rx="40" fill="url(#bgGrad)"/>
+  <rect x="0" y="0" width="800" height="600" rx="0" fill="#fff"/>
+  <text x="50%" y="110" text-anchor="middle" font-size="44" font-family="Arial Black, Arial, sans-serif" fill="#ff6a00" font-weight="bold">SETIA SKY RESIDENCES</text>
+  <text x="50%" y="160" text-anchor="middle" font-size="26" font-family="Arial, Helvetica, sans-serif" fill="#181818">Ibereko Scheme, Eleko, Ibeju-Lekki, Lagos</text>
+  <text x="50%" y="195" text-anchor="middle" font-size="20" font-family="Arial, Helvetica, sans-serif" fill="#ff6a00">Own a Prime Piece of Lagos’ Smart City Future</text>
+  <g>
+    <rect x="120" y="220" width="560" height="60" rx="20" fill="url(#orangeGrad)"/>
+    <text x="400" y="258" text-anchor="middle" font-size="26" font-family="Arial Black, Arial, sans-serif" fill="#fff">Flexible Payment Plan</text>
+  </g>
+  <g>
+    <rect x="200" y="295" width="400" height="44" rx="16" fill="#fff" stroke="#ff6a00" stroke-width="4"/>
+    <text x="400" y="325" text-anchor="middle" font-size="22" font-family="Arial Black, Arial, sans-serif" fill="#ff6a00">UP TO 12 MONTHS</text>
+  </g>
+  <g>
+    <rect x="160" y="360" width="480" height="60" rx="20" fill="#181818"/>
+    <text x="400" y="398" text-anchor="middle" font-size="24" font-family="Arial, Helvetica, sans-serif" fill="#fff">Initial Deposit — ₦2M Only</text>
+  </g>
+  <text x="50%" y="500" text-anchor="middle" font-size="22" font-family="Arial Black, Arial, sans-serif" fill="#ff6a00">www.scotchstoneholdings.com</text>
+</svg>

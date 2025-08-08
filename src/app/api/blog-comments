@@ -1,0 +1,55 @@
+import mysql from 'mysql2/promise';
+
+export async function POST(request) {
+  const body = await request.json();
+  const { postId, author, text } = body;
+  if (!postId || !author || !text) {
+    return Response.json({ error: 'Missing required fields' }, { status: 400 });
+  }
+
+  const db = await mysql.createConnection({
+    host: process.env.MYSQL_HOST,
+    user: process.env.MYSQL_USER,
+    password: process.env.MYSQL_PASSWORD,
+    database: process.env.MYSQL_DATABASE,
+  });
+
+  try {
+    await db.execute(
+      'INSERT INTO comments (post_id, author, text) VALUES (?, ?, ?)',
+      [postId, author, text]
+    );
+    return Response.json({ success: true });
+  } catch (err) {
+    return Response.json({ error: 'Database error', details: err.message }, { status: 500 });
+  } finally {
+    await db.end();
+  }
+}
+
+export async function GET(request) {
+  const { searchParams } = new URL(request.url);
+  const postId = searchParams.get('postId');
+  if (!postId) {
+    return Response.json({ error: 'Missing postId' }, { status: 400 });
+  }
+
+  const db = await mysql.createConnection({
+    host: process.env.MYSQL_HOST,
+    user: process.env.MYSQL_USER,
+    password: process.env.MYSQL_PASSWORD,
+    database: process.env.MYSQL_DATABASE,
+  });
+
+  try {
+    const [rows] = await db.execute(
+      'SELECT author, text, created_at FROM comments WHERE post_id = ? ORDER BY created_at ASC',
+      [postId]
+    );
+    return Response.json(rows);
+  } catch (err) {
+    return Response.json({ error: 'Database error', details: err.message }, { status: 500 });
+  } finally {
+    await db.end();
+  }
+}
